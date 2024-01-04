@@ -1,0 +1,99 @@
+#card {
+
+  font-family: Helvetica, Arial, sans-serif;
+  cursor: pointer;
+
+  .card_radius {
+    border-radius: 24px;
+  }
+
+  figure {
+    height: 22vw;
+    max-height: 360px;
+  }
+
+  img {
+    transform: scale(1.02);
+    transition: all 1s cubic-bezier(.22, 1, .36, 1);
+  }
+
+  .card_radius_b {
+    border-radius: 0 0 24px 24px;
+  }
+
+  .arrow_container {
+    border-radius: 24px 0 0 0;
+    bottom: 0px;
+    border: none;
+    transform: translateY(100%);
+    transition: all 1s cubic-bezier(.22, 1, .36, 1);
+  }
+
+  .arrow_container::before {
+    top: -39px;
+    right: -9px;
+    transform: rotate(270deg);
+    content: "";
+    background-image: url('../assets/figure.svg');
+    display: flex;
+    width: 48px;
+    height: 48px;
+    background-size: cover;
+    position: absolute;
+  }
+
+  .arrow_container::after {
+    bottom: -9px;
+    left: -39px;
+    transform: rotate(270deg);
+    content: "";
+    background-image: url('../assets/figure.svg');
+    display: flex;
+    width: 48px;
+    height: 48px;
+    background-size: cover;
+    position: absolute;
+  }
+
+  .card_tag {
+    padding: 0.5rem 0.75rem;
+    color: #222;
+    background-color: #f0f0f0;
+    backdrop-filter: blur(8px);
+    border-radius: 30px;
+    margin: 10px;
+    font-size: 0.9rem;
+    letter-spacing: 0.03em;
+  }
+
+  @media screen and (max-width : 900px) {
+
+    figure,
+    img {
+      height: 30vw;
+    }
+  }
+
+  @media screen and (max-width : 767px) {
+    .arrow_container::before {
+      top: -37px;
+    }
+
+    .arrow_container::after {
+      left: -37px;
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    height: 50vw;
+  }
+}
+
+#card:hover img {
+  transform: scale(1);
+  opacity: 0.5;
+}
+
+#card:hover .arrow_container {
+  transform: translateY(0);
+}
