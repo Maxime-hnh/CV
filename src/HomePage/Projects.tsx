@@ -1,5 +1,6 @@
 import fruits from '../assets/fruits.jpg';
 import car from '../assets/car.jpg';
+import movie from '../assets/movie.jpg';
 import { MdArrowOutward } from "react-icons/md";
 import './Projects.scss';
 
@@ -28,9 +29,9 @@ const Projects = () => {
           <MdArrowOutward size={30}/>
           </div>
         </div>
-        <div className='my-6'>
-          <p className='mb-4 text-gray-400'>2023</p>
-          <h3 className='tracking-wide text-2xl'>
+        <div className='my-2 lg:my-6'>
+          <p className='mb-1 lg:mb-4 text-gray-400 text-xs md:text-base'>2023</p>
+          <h3 className='tracking-wide text-lg  sm:text-xl lg:text-2xl'>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus, reiciendis?
           </h3>
         </div>
@@ -45,14 +46,14 @@ const Projects = () => {
 
   return (
     <div className='block mt-8 px-12'>
-      <h2 className='text-5xl '>
+      <h2 className='text-4xl lg:text-5xl '>
       Mes projets
       </h2>
 
       <div className=' cards_container grid grid-cols-3 gap-x-5 mt-8 w-full mobile:grid-cols-1 custom:grid-cols-2'>
-          <Card img={fruits} content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus, reiciendis?" devs={["react", "node", "sequelize", "express"]} />
-          <Card img={car} content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus, reiciendis?" devs={["react", "node", "sequelize", "express"]} />
-          <Card img={fruits} content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus, reiciendis?" devs={["react", "node", "sequelize", "express"]} />
+          <Card img={movie} content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus, reiciendis?" devs={["html", "css", "javascript"]} />
+          <Card img={car} content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus, reiciendis?" devs={["react", "node", "express", "sequelize"]} />
+          <Card img={fruits} content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus, reiciendis?" devs={["react", "node", "express", "sequelize"]} />
 
         </div>
 

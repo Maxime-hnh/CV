@@ -66,7 +66,35 @@
     letter-spacing: 0.03em;
   }
 
-  @media screen and (max-width : 900px) {
+  
+  @media screen and (max-width : 480px) {
+
+    margin-bottom: 1.5rem;
+    
+    figure,
+    img {
+      height: 50vw;
+    }
+  }
+
+  @media screen and (max-width : 767px) {
+    
+    .arrow_container::before {
+      top: -37px;
+    }
+    
+    .arrow_container::after {
+      left: -37px;
+    }
+    
+    .card_tag {
+      margin: 3px;
+      font-size: 0.6rem;
+    }
+  }
+  
+  @media screen and (min-width : 481px) and (max-width : 900px) {
+    margin-bottom: 0.75rem;
 
     figure,
     img {
@@ -74,18 +102,11 @@
     }
   }
 
-  @media screen and (max-width : 767px) {
-    .arrow_container::before {
-      top: -37px;
+  @media screen and (max-width : 1222px) {
+    .card_tag {
+      margin: 5px;
+      font-size: 0.8rem;
     }
-
-    .arrow_container::after {
-      left: -37px;
-    }
-  }
-
-  @media screen and (max-width: 480px) {
-    height: 50vw;
   }
 }
 
