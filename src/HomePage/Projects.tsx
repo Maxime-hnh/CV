@@ -22,7 +22,7 @@ const Projects = () => {
           <figure className='relative bg-black rounded-3xl overflow-hidden'>
             <img src={img} className='w-full h-full rounded-3xl object-cover opacity-80' />
           </figure>
-          <div className='absolute bottom-0 h-full w-full p-4 flex items-center justify-start text-white text-sm font-semibold sm:text-base md:text-xl xl:text-3xl xl:leading-10'>
+          <div className='absolute bottom-0 h-full w-full p-4 flex items-center justify-start text-white font-semibold text-base md:text-xl xl:text-3xl xl:leading-10'>
             <p className='tracking-wide'>{content}</p>
           </div>
           <div className='arrow_container absolute right-0 bg-white p-3 md:p-5 xl:p-8'>
@@ -45,7 +45,7 @@ const Projects = () => {
   }
 
   return (
-    <div className='block mt-8 px-12'>
+    <div className='block mt-8 px-12 custom:px-8'>
       <h2 className='text-4xl lg:text-5xl '>
       Mes projets
       </h2>

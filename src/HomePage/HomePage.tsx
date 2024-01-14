@@ -12,6 +12,7 @@ import css from '../assets/framework/css.svg';
 import './HomePage.scss';
 import gsap from 'gsap';
 import Projects from './Projects';
+import WhoAmI from './WhoAmI';
 
 
 const HomePage = () => {
@@ -47,7 +48,7 @@ const HomePage = () => {
   return (
     <>
       <div id="home" className=" relative home-bg-magic pt-6">
-        <div className="mt-16 px-4 text-center sm:mt-20">
+        <div className="mt-20 px-4 text-center">
           <h1 className="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
             <span className="block uppercase xl:inline">développeur web </span>
             <span className="block uppercase text-blue-600 xl:inline">full stack junior</span>
@@ -67,7 +68,7 @@ const HomePage = () => {
           <div className='mt-8 absolute bottom-0' ref={logoCrsl}>
             <ul className='flex justify-between items-center whitespace-nowrap overflow-hidden' style={{ width: '200%' }}>
               {duplicatedLogos.map((logo: any, index: number) => (
-                <li key={index} className='sm:w-4/12 lg:w-1/12 flex justify-center items-center pl-1 pr-1'>
+                <li key={index} className='mobile:w-6/12 sm:w-4/12 lg:w-1/12 flex justify-center items-center pl-1 pr-1'>
                   <img src={logo.src} width={logo.width} alt="Logo" className='' />
                 </li>
               ))}
@@ -76,6 +77,7 @@ const HomePage = () => {
 
         </div>
       </div>
+      <WhoAmI />
       <Projects />
     </>
 
