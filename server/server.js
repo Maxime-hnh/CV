@@ -4,8 +4,7 @@ const app = express();
 const bodyparser = require('body-parser');
 const sequelize = require('./util/database');
 const cors = require('cors');
-const path = require('path');
-// const fs = require('fs');
+const users = require('./routes/users');
 const acl = require('express-acl');
 
 
@@ -44,7 +43,7 @@ app.get('/api', (req, res, next) => {
 });
  
 //CRUD ROUTES
-// app.use("/");
+app.use('/api/users', users)
 
 
 //TEST ROUTE
