@@ -1,8 +1,8 @@
 import { Request } from 'express';
-import { UserModel } from '../models/user';
+import { UserModel } from '../models/user'; // Assurez-vous que ce chemin est correct
 
 declare module 'express' {
-  export interface Request {
-    user?: UserModel;
+  interface Request {
+    user?: UserModel | null;
   }
 }

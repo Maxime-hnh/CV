@@ -1,15 +1,16 @@
+import  express, { Request, Response, NextFunction } from 'express'
 require('dotenv').config();
-const express = require('express');
 const app = express();
-const bodyparser = require('body-parser');
-const sequelize = require('./util/database');
-const cors = require('cors');
-const users = require('./routes/users');
-const acl = require('express-acl');
+import bodyparser from 'body-parser';
+import cors from 'cors'
+import sequelize from './util/database'
+import auth from './routes/auth'
+import users from './routes/users'
+// const acl = require('express-acl');
 
 
-app.use(bodyparser.json({ limit : '10mb'}));
-app.use(bodyparser.urlencoded({ limit : '10mb', extended: false }));
+app.use(bodyparser.json({ limit: '10mb' }));
+app.use(bodyparser.urlencoded({ limit: '10mb', extended: false }));
 
 
 // CORS POLICY
@@ -20,7 +21,7 @@ app.use(cors({
 }));
 
 
-app.use((req, res, next) => {
+app.use((req: Request, res: Response, next: NextFunction) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
@@ -38,12 +39,13 @@ app.use((req, res, next) => {
 
 
 //TEST ROUTE
-app.get('/api', (req, res, next) => {
+app.get('/api', (req: Request, res: Response, next: NextFunction) => {
     res.send('Hello World');
 });
- 
+
 //CRUD ROUTES
 app.use('/api/users', users)
+app.use('/api/auth', auth)
 
 
 //TEST ROUTE
@@ -54,7 +56,7 @@ app.use('/api/users', users)
 
 
 //ERROR HANDLING
-app.use((error, req, res, next) => {
+app.use((error: any, req: Request, res: Response, next: NextFunction) => {
     console.log(error);
     const status = error.statusCode || 500;
     const message = error.message;
@@ -65,8 +67,8 @@ app.use((error, req, res, next) => {
 //SYNC DATABASE
 sequelize
     .sync()
-    .then(result => {
+    .then((result: any) => {
         console.log("🚀🚀Database connected !🚀🚀");
         app.listen(3000);
     })
-    .catch(err => console.log('⛔⛔Une erreur est survenue : ', err));
+    .catch((err: any) => console.log('⛔⛔Une erreur est survenue : ', err));

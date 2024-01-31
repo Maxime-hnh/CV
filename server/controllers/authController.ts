@@ -1,8 +1,8 @@
 import { Request, Response, NextFunction } from 'express';
-const { User, validate, sequelize } = require('../models/user');
-const bcrypt = require('bcrypt');
-const httpStatus = require('http-status');
-const jwt = require("jsonwebtoken");
+import { User, validate, sequelize, UserModel } from '../models/user'
+import bcrypt from 'bcrypt'
+import httpStatus from 'http-status';
+import jwt from 'jsonwebtoken'
 
 
 class UserController {
@@ -14,7 +14,12 @@ class UserController {
       const token = req.header("x-access-token");
       if (!token) return res.status(403).send("Accès refusé.");
 
-      const decoded = jwt.verify(token, process.env.JWTPRIVATEKEY);
+      const secret = process.env.JWTPRIVATEKEY;
+      if (!secret) {
+        throw new Error("La clé secrète JWT est manquante.");
+      }
+
+      const decoded = jwt.verify(token, secret) as UserModel;
       req.user = decoded;
       next();
     } catch (error) {

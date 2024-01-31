@@ -6,4 +6,4 @@ const acl = require('express-acl');
 router.get('/me', userController.GetMe.bind(userController))
 
 
-module.exports = router;
+export default router

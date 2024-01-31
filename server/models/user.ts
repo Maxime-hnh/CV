@@ -10,11 +10,11 @@ export enum UserRole {
 
 export interface UserModel {
   id: number;
-  firstName:string;
-  lastName:string;
-  email:string;
-  password:string;
-  role:UserRole;
+  firstName: string;
+  lastName: string;
+  email: string;
+  password: string;
+  role: UserRole;
 }
 
 const User = sequelize.define('user', {
@@ -60,7 +60,7 @@ User.prototype.generateAuthToken = function () {
 };
 
 
-const validate = (user:UserModel) => {
+const validate = (user: UserModel) => {
   const schema = Joi.object({
     firstName: Joi.string().max(20).required(),
     lastName: Joi.string().max(20).required(),
@@ -71,4 +71,4 @@ const validate = (user:UserModel) => {
   return schema.validate(user);
 };
 
-module.exports = { User, validate, sequelize };
+export { User, validate, sequelize };

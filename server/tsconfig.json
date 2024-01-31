@@ -1,0 +1,38 @@
+{
+  "ts-node": {
+    "files": true
+  },
+  "compilerOptions": {
+    "target": "es2020",
+    "module": "commonjs",
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "incremental": true,
+    "allowJs": true,
+    "allowSyntheticDefaultImports": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": false,
+    "suppressImplicitAnyIndexErrors": true,
+    "ignoreDeprecations": "5.0",
+    "skipLibCheck": true,
+    "lib": [
+      "es2015.promise",
+      "es2020",
+      "dom"
+    ],
+    "outDir": "server/build"
+  },
+  "include": [
+    "server",
+    "defs/custom-types.d.ts"
+  ],
+  "files": [
+	  "defs/custom-types.d.ts"
+  ],
+  "exclude": [
+    "node_modules/typescript",
+    "server/build",
+  ]
+}
